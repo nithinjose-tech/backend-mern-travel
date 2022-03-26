@@ -5,6 +5,9 @@ const dotenv = require("dotenv");
 const userRoute = require("./routes/users");
 const pinRoute = require("./routes/pins");
 
+const PORT = process.env.PORT || 5000;
+const host = "0.0.0.0";
+
 dotenv.config();
 
 app.use(express.json());
@@ -20,6 +23,6 @@ mongoose
 app.use("/api/users", userRoute);
 app.use("/api/pins", pinRoute);
 
-app.listen(8080, () => {
-  console.log("Backend server is running!");
+app.listen(PORT, host, () => {
+  console.log(`Server running on ${PORT}`);
 });
