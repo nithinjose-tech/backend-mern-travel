@@ -4,12 +4,15 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const userRoute = require("./routes/users");
 const pinRoute = require("./routes/pins");
+const cors = require("cors");
 
 const PORT = process.env.PORT || 5000;
 const host = "0.0.0.0";
 
 dotenv.config();
 
+app.use(express.urlencoded({ extended: false }));
+app.use(cors());
 app.use(express.json());
 
 mongoose 
